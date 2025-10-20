@@ -1,0 +1,17 @@
+POST http://localhost:5191/orders
+Content-Type: application/json
+
+{
+    "Id": "Order1",
+    "products": 
+    {
+        "PhotoBook": 2,
+        "Mug": 3
+    }
+}
+
+###
+
+GET http://localhost:5191/orders/Order1
+
+
