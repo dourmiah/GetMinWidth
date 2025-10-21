@@ -63,11 +63,18 @@ app.MapPost("/orders", async (OrderRequest request, IOrderService service) =>
 });
 
 
-// GET request
+// GET Order request
 app.MapGet("/orders/{id}", async (string id, IOrderService service) =>
 {
     var order = await service.GetOrder(id);
     return order is null ? Results.NotFound() : Results.Ok(order);
+});
+
+// GET Products request
+app.MapGet("/products", async (IProductRepository service) =>
+{
+    var products = await service.GetAll();
+    return Results.Ok(products);
 });
 
 app.Run();
